@@ -39,8 +39,16 @@
             this.pnlProgress = new MetroFramework.Controls.MetroPanel();
             this.lblFileName = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.lblStatus = new MetroFramework.Controls.MetroLabel();
+            this.pnlSize = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.lblFiles = new MetroFramework.Controls.MetroLabel();
+            this.lblSize = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.pnlFileinfo = new MetroFramework.Controls.MetroPanel();
             this.pnlProgress.SuspendLayout();
+            this.pnlSize.SuspendLayout();
+            this.pnlFileinfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSelectFolder2
@@ -171,25 +179,25 @@
             // 
             // pnlProgress
             // 
-            this.pnlProgress.Controls.Add(this.lblFileName);
-            this.pnlProgress.Controls.Add(this.metroLabel3);
-            this.pnlProgress.Controls.Add(this.metroLabel2);
+            this.pnlProgress.Controls.Add(this.pnlFileinfo);
+            this.pnlProgress.Controls.Add(this.lblStatus);
             this.pnlProgress.Controls.Add(this.prgBar);
             this.pnlProgress.HorizontalScrollbarBarColor = true;
             this.pnlProgress.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlProgress.HorizontalScrollbarSize = 10;
-            this.pnlProgress.Location = new System.Drawing.Point(10, 215);
+            this.pnlProgress.Location = new System.Drawing.Point(10, 202);
             this.pnlProgress.Name = "pnlProgress";
             this.pnlProgress.Size = new System.Drawing.Size(572, 72);
             this.pnlProgress.TabIndex = 118;
             this.pnlProgress.VerticalScrollbarBarColor = true;
             this.pnlProgress.VerticalScrollbarHighlightOnWheel = false;
             this.pnlProgress.VerticalScrollbarSize = 10;
+            this.pnlProgress.Visible = false;
             // 
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(44, 50);
+            this.lblFileName.Location = new System.Drawing.Point(41, 0);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new System.Drawing.Size(45, 19);
             this.lblFileName.TabIndex = 121;
@@ -198,26 +206,96 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 50);
+            this.metroLabel3.Location = new System.Drawing.Point(0, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(40, 19);
             this.metroLabel3.TabIndex = 120;
             this.metroLabel3.Text = "File : ";
             // 
-            // metroLabel2
+            // lblStatus
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 4);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(58, 19);
-            this.metroLabel2.TabIndex = 119;
-            this.metroLabel2.Text = "Copying";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(3, 4);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(58, 19);
+            this.lblStatus.TabIndex = 119;
+            this.lblStatus.Text = "Copying";
+            // 
+            // pnlSize
+            // 
+            this.pnlSize.Controls.Add(this.lblSize);
+            this.pnlSize.Controls.Add(this.metroLabel5);
+            this.pnlSize.Controls.Add(this.lblFiles);
+            this.pnlSize.Controls.Add(this.metroLabel7);
+            this.pnlSize.HorizontalScrollbarBarColor = true;
+            this.pnlSize.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlSize.HorizontalScrollbarSize = 10;
+            this.pnlSize.Location = new System.Drawing.Point(238, 163);
+            this.pnlSize.Name = "pnlSize";
+            this.pnlSize.Size = new System.Drawing.Size(303, 39);
+            this.pnlSize.TabIndex = 122;
+            this.pnlSize.VerticalScrollbarBarColor = true;
+            this.pnlSize.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlSize.VerticalScrollbarSize = 10;
+            this.pnlSize.Visible = false;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(2, 11);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(65, 19);
+            this.metroLabel7.TabIndex = 119;
+            this.metroLabel7.Text = "Total Files";
+            // 
+            // lblFiles
+            // 
+            this.lblFiles.AutoSize = true;
+            this.lblFiles.Location = new System.Drawing.Point(68, 11);
+            this.lblFiles.Name = "lblFiles";
+            this.lblFiles.Size = new System.Drawing.Size(34, 19);
+            this.lblFiles.TabIndex = 120;
+            this.lblFiles.Text = "Files";
+            // 
+            // lblSize
+            // 
+            this.lblSize.AutoSize = true;
+            this.lblSize.Location = new System.Drawing.Point(191, 11);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(32, 19);
+            this.lblSize.TabIndex = 122;
+            this.lblSize.Text = "Size";
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(126, 11);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel5.TabIndex = 121;
+            this.metroLabel5.Text = "Total Size :";
+            // 
+            // pnlFileinfo
+            // 
+            this.pnlFileinfo.Controls.Add(this.metroLabel3);
+            this.pnlFileinfo.Controls.Add(this.lblFileName);
+            this.pnlFileinfo.HorizontalScrollbarBarColor = true;
+            this.pnlFileinfo.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlFileinfo.HorizontalScrollbarSize = 10;
+            this.pnlFileinfo.Location = new System.Drawing.Point(3, 49);
+            this.pnlFileinfo.Name = "pnlFileinfo";
+            this.pnlFileinfo.Size = new System.Drawing.Size(421, 20);
+            this.pnlFileinfo.TabIndex = 123;
+            this.pnlFileinfo.VerticalScrollbarBarColor = true;
+            this.pnlFileinfo.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlFileinfo.VerticalScrollbarSize = 10;
             // 
             // frmFileCopier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 299);
+            this.ClientSize = new System.Drawing.Size(596, 278);
+            this.Controls.Add(this.pnlSize);
             this.Controls.Add(this.pnlProgress);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.btnSelectFolder2);
@@ -230,6 +308,10 @@
             this.Text = "File Copier";
             this.pnlProgress.ResumeLayout(false);
             this.pnlProgress.PerformLayout();
+            this.pnlSize.ResumeLayout(false);
+            this.pnlSize.PerformLayout();
+            this.pnlFileinfo.ResumeLayout(false);
+            this.pnlFileinfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,9 +328,15 @@
         private MetroFramework.Controls.MetroProgressBar prgBar;
         private MetroFramework.Controls.MetroButton btnCopy;
         private MetroFramework.Controls.MetroPanel pnlProgress;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel lblStatus;
         private MetroFramework.Controls.MetroLabel lblFileName;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroPanel pnlSize;
+        private MetroFramework.Controls.MetroLabel lblSize;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel lblFiles;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroPanel pnlFileinfo;
     }
 }
 
