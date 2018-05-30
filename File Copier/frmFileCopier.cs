@@ -75,6 +75,11 @@ namespace File_Copier
             prgBar.Refresh();
             prgBar.HideProgressText = false;
             lblStatus.Text = "Copying";
+            Task.Run(() => copy());
+            this.Refresh();
+        }
+        private void copy()
+        {
             foreach (string newPath in Directory.GetFiles(txtFolderOrigin.Text, "*.*", SearchOption.AllDirectories))
             {
                 try
@@ -94,19 +99,25 @@ namespace File_Copier
                             newFullPath = Path.Combine(newFullPath.Replace(newFullPath.Split('\\').Last(), ""), tempFileName + new FileInfo(newPath).Extension);
                         }
                     }
-                    lblFileName.Text = new FileInfo(newPath).Name;
-                    File.Copy(newPath, newFullPath);
-                    prgBar.Value++;
-                    this.Refresh();
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        lblFileName.Text = new FileInfo(newPath).Name;
+                        File.Copy(newPath, newFullPath);
+                        prgBar.Value++;
+                        this.Refresh();
+                    });
+
                 }
-                catch 
+                catch(Exception e)
                 {
                     MessageBox.Show("Missed file " + newPath);
                 }
-
             }
-            this.Refresh();
-            MessageBox.Show("Completed");
+            this.Invoke((MethodInvoker)delegate
+            {
+                MessageBox.Show("Completed");
+                pnlProgress.Hide();
+            });
         }
     }
 }
