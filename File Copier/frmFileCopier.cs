@@ -111,20 +111,15 @@ namespace File_Copier
                 }
                 catch(Exception e)
                 {
-                    showMessageBox("Missed file " + newPath);
+                    MessageBox.Show("Missed file " + newPath);
                 }
             }
+            MessageBox.Show("Completed");
+
             this.Invoke((MethodInvoker)delegate
             {
-                showMessageBox("Completed");
                 pnlProgress.Hide();
             });
-        }
-        private void showMessageBox (string msg)
-        {
-            this.BringToFront();
-            this.Select();
-            MessageBox.Show(this, msg);
         }
     }
 }
