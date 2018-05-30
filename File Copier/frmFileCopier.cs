@@ -71,6 +71,7 @@ namespace File_Copier
             pnlFileinfo.Show();
             prgBar.ProgressBarStyle = ProgressBarStyle.Continuous;
             prgBar.Minimum = 0;
+            prgBar.Value = 0;
             prgBar.Maximum = Convert.ToInt32( lblFiles.Tag);
             prgBar.Refresh();
             prgBar.HideProgressText = false;
@@ -110,14 +111,20 @@ namespace File_Copier
                 }
                 catch(Exception e)
                 {
-                    MessageBox.Show("Missed file " + newPath);
+                    showMessageBox("Missed file " + newPath);
                 }
             }
             this.Invoke((MethodInvoker)delegate
             {
-                MessageBox.Show("Completed");
+                showMessageBox("Completed");
                 pnlProgress.Hide();
             });
+        }
+        private void showMessageBox (string msg)
+        {
+            this.BringToFront();
+            this.Select();
+            MessageBox.Show(this, msg);
         }
     }
 }
